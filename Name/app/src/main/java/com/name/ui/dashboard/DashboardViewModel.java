@@ -10,11 +10,12 @@ public class DashboardViewModel extends ViewModel {
 
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Bienvenido ");
+        mText.setValue("Tienes  ");
     }
 
-    public LiveData<String> getText(String name) {
-        mText.setValue(mText.getValue() + name + " !");
+    public LiveData<String> getText(String naci) {
+        int edad = 2024 - Integer.valueOf(naci);
+        mText.setValue(mText.getValue() + String.valueOf(edad) + " !");
         return mText;
     }
 }

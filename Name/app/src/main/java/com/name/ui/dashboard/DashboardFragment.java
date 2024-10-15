@@ -24,9 +24,8 @@ public class DashboardFragment extends Fragment {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        // Retrieve the input value from the arguments
-        String name = getArguments() != null ? getArguments().getString("name") : "No Name";
+        
+        String name = getArguments() != null ? getArguments().getString("name") : "No date";
 
         final TextView textView = binding.textDashboard;
         dashboardViewModel.getText(name).observe(getViewLifecycleOwner(), textView::setText);

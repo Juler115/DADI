@@ -20,6 +20,21 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
+    public static String getFirstNumber(String input) {
+        StringBuilder number = new StringBuilder();
+
+        for (char c : input.toCharArray()) {
+            if (c == '/') {
+                break;
+            }
+            if (Character.isDigit(c)) {
+                number.append(c);
+            }
+        }
+
+        return number.toString();
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,18 +50,16 @@ public class HomeFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputText = editText.getText().toString().trim(); // Trim whitespace from input
+                String inputText = editText.getText().toString().trim();
 
-                // Get the NavController from the current view
+                String year = getFirstNumber(inputText);
+
                 NavController navController = Navigation.findNavController(v);
 
-                // Check if the input text is not empty
-                if (!inputText.isEmpty()) {
-                    // Pass the input text to the DashboardFragment using Bundle
+                if (!year.isEmpty()) {
                     Bundle bundle = new Bundle();
-                    bundle.putString("name", inputText);
+                    bundle.putString("name", year);
 
-                    // Navigate to DashboardFragment
                     navController.navigate(R.id.action_homeFragment_to_dashboardFragment, bundle);
                 }
             }
