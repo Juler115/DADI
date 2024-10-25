@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.login"
+    namespace = "com.examen2"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.login"
+        applicationId = "com.examen2"
         minSdk = 27
         targetSdk = 34
         versionCode = 1
@@ -33,7 +33,6 @@ android {
 
 dependencies {
 
-    implementation(libs.okhttp)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
